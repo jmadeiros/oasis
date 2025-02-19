@@ -13,22 +13,67 @@ export default function Home() {
     {
       id: '1',
       defaultPos: { x: 0, y: 0 },
-      src: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4'
+      video: '/images/luma/luma-1.jpg',
+      corner: 'rounded',
+      edgeHorizontal: 'straight',
+      edgeVertical: 'straight',
+      mediaSize: 1,
+      borderThickness: 1,
+      borderSize: 1,
+      autoplayMode: 'hover' as const,
+      isHovered: false
     },
     {
       id: '2',
       defaultPos: { x: 4, y: 0 },
-      src: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4'
+      video: '/images/luma/luma-2.jpg',
+      corner: 'rounded',
+      edgeHorizontal: 'straight',
+      edgeVertical: 'straight',
+      mediaSize: 1,
+      borderThickness: 1,
+      borderSize: 1,
+      autoplayMode: 'hover' as const,
+      isHovered: false
     },
     {
       id: '3',
       defaultPos: { x: 0, y: 4 },
-      src: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4'
+      video: '/images/luma/luma-3.jpg',
+      corner: 'rounded',
+      edgeHorizontal: 'straight',
+      edgeVertical: 'straight',
+      mediaSize: 1,
+      borderThickness: 1,
+      borderSize: 1,
+      autoplayMode: 'hover' as const,
+      isHovered: false
     },
     {
       id: '4',
       defaultPos: { x: 4, y: 4 },
-      src: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4'
+      video: '/images/luma/luma-4.jpg',
+      corner: 'rounded',
+      edgeHorizontal: 'straight',
+      edgeVertical: 'straight',
+      mediaSize: 1,
+      borderThickness: 1,
+      borderSize: 1,
+      autoplayMode: 'hover' as const,
+      isHovered: false
+    },
+    {
+      id: '5',
+      defaultPos: { x: 2, y: 2 },
+      video: '/images/luma/luma-5.jpg',
+      corner: 'rounded',
+      edgeHorizontal: 'straight',
+      edgeVertical: 'straight',
+      mediaSize: 1,
+      borderThickness: 1,
+      borderSize: 1,
+      autoplayMode: 'hover' as const,
+      isHovered: false
     }
   ]
 
