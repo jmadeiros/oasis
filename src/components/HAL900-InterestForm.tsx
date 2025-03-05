@@ -51,7 +51,7 @@ export function HAL900InterestForm({ selectedFrame }: HAL900InterestFormProps) {
   const getStepContent = () => {
     switch (step) {
       case 1:
-        return (
+  return (
           <motion.div
             key="step1"
             variants={formVariants}
@@ -67,15 +67,15 @@ export function HAL900InterestForm({ selectedFrame }: HAL900InterestFormProps) {
                 className="md:col-span-2"
               >
                 <label htmlFor="name" className="block text-lg font-medium text-white/90 mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  required
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                required
                   className="w-full px-6 py-4 bg-white/5 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-200 hover:bg-white/10 text-lg"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Your full name"
                 />
               </motion.div>
@@ -85,15 +85,15 @@ export function HAL900InterestForm({ selectedFrame }: HAL900InterestFormProps) {
                 variants={inputVariants}
               >
                 <label htmlFor="email" className="block text-lg font-medium text-white/90 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  required
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                required
                   className="w-full px-6 py-4 bg-white/5 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-200 hover:bg-white/10 text-lg"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="your@email.com"
                 />
               </motion.div>
@@ -115,7 +115,7 @@ export function HAL900InterestForm({ selectedFrame }: HAL900InterestFormProps) {
                 />
               </motion.div>
             </div>
-
+            
             <motion.button
               type="button"
               onClick={() => setStep(2)}
@@ -201,15 +201,15 @@ export function HAL900InterestForm({ selectedFrame }: HAL900InterestFormProps) {
               >
                 <label htmlFor="message" className="block text-lg font-medium text-white/90 mb-2">
                   Additional Requirements
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
+              </label>
+              <textarea
+                id="message"
+                rows={4}
                   className="w-full px-6 py-4 bg-white/5 rounded-xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all duration-200 hover:bg-white/10 text-lg resize-none"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell us about your specific requirements or questions..."
-                />
+              />
               </motion.div>
             </div>
 
@@ -240,7 +240,7 @@ export function HAL900InterestForm({ selectedFrame }: HAL900InterestFormProps) {
                   'Submit'
                 )}
               </motion.button>
-            </div>
+          </div>
           </motion.div>
         )
 
@@ -339,7 +339,7 @@ export function HAL900InterestForm({ selectedFrame }: HAL900InterestFormProps) {
               <div className="lg:col-span-3 space-y-8">
                 <form onSubmit={handleSubmit} className="space-y-8">
                   {getStepContent()}
-                </form>
+        </form>
               </div>
 
               {/* Right Side - Selected Space Info */}

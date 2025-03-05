@@ -6,6 +6,7 @@ import { HAL900InterestForm } from "../components/HAL900-InterestForm"
 import Image from "next/image"
 import Link from "next/link"
 import { Inter } from "next/font/google"
+import { motion, AnimatePresence } from "framer-motion"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,9 +14,145 @@ export default function Home() {
   const [headerSize] = useState(1.2)
   const [textSize] = useState(0.8)
   const [selectedFrame, setSelectedFrame] = useState<any>(null)
+  const [showAbout, setShowAbout] = useState(false)
 
   return (
     <main className={`${inter.className}`}>
+      {/* About Us Tab */}
+      <motion.div 
+        className="fixed left-0 top-1/2 -translate-y-1/2 z-50"
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.button
+          onClick={() => setShowAbout(!showAbout)}
+          className="flex items-center gap-2 px-6 py-4 bg-white/10 backdrop-blur-md rounded-r-xl text-white/80 hover:text-white hover:bg-white/20 transition-all"
+          whileHover={{ scale: 1.05, x: 5 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span className="text-lg font-medium">About Us</span>
+          <motion.svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+            animate={{ rotate: showAbout ? 180 : 0 }}
+          >
+            <path d="m9 18 6-6-6-6"/>
+          </motion.svg>
+        </motion.button>
+      </motion.div>
+
+      <AnimatePresence>
+        {showAbout && (
+          <motion.div
+            initial={{ opacity: 0, x: "-100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "-100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed left-0 top-0 h-full w-full md:w-[450px] bg-black/95 backdrop-blur-xl z-40 overflow-y-auto"
+          >
+            <div className="relative p-8 md:p-12 h-full">
+              <motion.button
+                onClick={() => setShowAbout(false)}
+                className="absolute top-6 right-6 text-white/60 hover:text-white"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                </svg>
+              </motion.button>
+
+              <div className="space-y-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <h2 className="text-3xl font-bold text-white mb-4">About Oasis</h2>
+                  <p className="text-white/70 leading-relaxed">
+                    Welcome to Oasis, where innovation meets tranquility in the heart of modern workspace solutions.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="space-y-6"
+                >
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-semibold text-white">Our Vision</h3>
+                    <p className="text-white/70 leading-relaxed">
+                      We believe in creating spaces that inspire creativity, foster collaboration, and enhance productivity. Our workspaces are designed to adapt to your needs, whether you're a solo entrepreneur or a growing team.
+                    </p>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-semibold text-white">What We Offer</h3>
+                    <ul className="space-y-3">
+                      {[
+                        "Flexible workspace solutions",
+                        "Modern amenities and technology",
+                        "Community-driven environment",
+                        "Prime locations worldwide",
+                        "24/7 access and security"
+                      ].map((item, index) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.4 + index * 0.1 }}
+                          className="flex items-center gap-3 text-white/70"
+                        >
+                          <svg className="w-5 h-5 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          {item}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 }}
+                  className="pt-6 border-t border-white/10"
+                >
+                  <h3 className="text-xl font-semibold text-white mb-4">Get Started</h3>
+                  <p className="text-white/70 leading-relaxed mb-6">
+                    Ready to transform your work experience? Explore our spaces and find the perfect fit for your business.
+                  </p>
+                  <motion.button
+                    onClick={() => {
+                      setShowAbout(false)
+                      const formElement = document.getElementById('interest-form')
+                      if (formElement) {
+                        formElement.scrollIntoView({ behavior: 'smooth' })
+                      }
+                    }}
+                    className="w-full py-3 px-6 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-all"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Book a Tour
+                  </motion.button>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className={`min-h-screen bg-[#141414] flex flex-col justify-center p-8`}>
         <div className="w-full h-full flex flex-col md:flex-row items-start gap-8 md:gap-8">
           {/* Left Content */}
@@ -45,14 +182,9 @@ export default function Home() {
                 </p>
                 <p>Explore our diverse range of workspace solutions.</p>
               </div>
-              <Link
-                href="https://www.wework.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 relative opacity-80 hover:opacity-100 transition-opacity"
-              >
-                <Image src="/wework-logo-white.png" alt="WeWork Logo" fill className="object-contain" />
-              </Link>
+              <div className="text-white text-2xl font-bold">
+                OASIS
+              </div>
             </div>
             <a
               href="https://www.wework.com/contact-us"
